@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>css轮播图片</title>
+	<meta charset="UTF-8">
+	<style type="text/css">
+	#content {
+		height: 375px;
+		width: 500px;
+		overflow: hidden;
+		position: relative;
+		padding: 0px;
+		margin:0px;
+	}
+	@keyframes slide {
+		0% {top:0px;}
+		25% {top:-375px;}
+		50% {top:-750px;}
+		75% {top: -1125px;}
+		100% {top:0px;}
+	}
+	@keyframes slide1 {
+		to {top:0px;}
+	}
+	@keyframes slide2 {
+		to {top:-375px;}
+	}
+	@keyframes slide3 {
+		to {top :-750px;}
+	}
+	@keyframes slide4 {
+		to {top:-1125px;}
+	}
+	#img {
+		position: absolute;
+		margin: 0px;
+		padding: 0px;
+		animation: slide 10s infinite;
+	}
+	.index {
+		position: absolute;
+		top: 320px;
+		left:380px;
+	}
+	a {
+		display: inline-block;
+		width: 20px;
+		height: 20px;
+		border-radius: 10px;
+		text-decoration: none;
+		text-align: center;
+	}
+	
+	@keyframes index_1 {
+		/*from,25%,to {background: aqua;}
+		0% {background: red;}*/
+		from {background: red;}
+		25% {background: aqua;}
+		50% {background: aqua;}
+		75% {background: aqua;}
+	}
+	@keyframes index_2 {
+		/*from,50%,to {background: aqua;}
+		25% {background: red}*/
+		from {background: aqua;}
+		25% {background: red;}
+		50% {background: aqua;}
+		75% {background: aqua;}
+	}
+	@keyframes index_3 {
+		/*from,75%,to {background: aqua;}
+		50% {background: red}*/
+		from {background: aqua;}
+		25% {background: aqua;}
+		50% {background: red;}
+		75% {background: aqua;}
+	}
+	@keyframes index_4 {
+		/*from,100%,to {background: aqua;}
+		75% {background: red;}*/
+		from {background: aqua;}
+		25% {background: aqua;}
+		50% {background: aqua;}
+		75% {background: red;}
+	}
+	#index_1 {
+		animation: index_1 10s infinite;
+		-webkit-animation:index_1 step-end 10s infinite;
+	}
+	#index_2 {
+		animation: index_2 10s  step-end infinite
+	}
+	#index_3 {
+		animation: index_3 10s step-end infinite;
+		
+	}
+	#index_4 {
+		animation: index_4 10s step-end infinite;	
+	}
+	</style>
+	
+</head>
+<body>
+<div id="content">
+	<ul  id="img">
+		<li><image src="../ps1.jpg" id="ps1" height="375" class = "ps"></li>
+		<li><image src="../ps2.jpg" id="ps2" height="375" class="ps"></li>
+		<li><image src="../ps3.jpg" id="ps3" height="375" class="ps"></li>
+		<li><image src="../ps4.jpg" id="ps4" height="375" class="ps"></li>
+	</ul>
+<div class="index">
+	<a href="#" id="index_1" class="link">1</a>
+	<a href="#" id="index_2" class="link">2</a>
+	<a href="#" id="index_3" class="link">3</a>
+	<a href="#" id="index_4" class="link">4</a>
+</div>
+</div>
+<script type="text/javascript">
+	(function() {
+		var index_1 = document.getElementById("index_1");
+		var index_2 = document.getElementById("index_2");
+		var index_3 = document.getElementById("index_3");
+		var index_4 = document.getElementById("index_4");
+		var img = document.getElementById("img");
+		index_1.onmouseover = function(event) {
+			event.target.style.background = "red";
+			img.style.animationPlayState = "paused";
+			img.style.animation = "slide1 1s";
+			
+		};
+		index_1.onmouseout = function() {
+			event.target.style.background = "aqua";
+			
+		};
+		index_2.onmouseover = function(event) {
+			event.target.style.background = "red";
+			img.style.animationPlayState = "paused";
+			img.style.animation = "slide2 1s";
+			
+		};
+		index_2.onmouseout = function() {
+			event.target.style.background = "aqua";
+		};
+		index_3.onmouseover = function(event) {
+			event.target.style.background = "red";
+			img.style.animationPlayState = "paused";
+			img.style.animation = "slide3 1s";
+		};
+		index_3.onmouseout = function() {
+			event.target.style.background = "aqua";
+		};
+		index_4.onmouseover = function(event) {
+			event.target.style.background = "red";
+			img.style.animationPlayState = "paused";
+			img.style.animation = "slide4 1s";			
+		}
+		index_4.onmouseout = function() {
+			event.target.style.background = "aqua";
+		};
+	})()
+</script>
+</body>
+</html>
